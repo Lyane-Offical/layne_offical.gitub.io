@@ -1181,6 +1181,18 @@ main {
   margin-left: 20px;
 }
 
+.project-title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  transition: transform 0.5s ease;
+}
+
 .project-image {
   width: 100%;
   height: 100%;
@@ -1189,6 +1201,9 @@ main {
 }
 
 .project-card:hover .project-image {
+  transform: scale(1.1);
+}
+.project-card:hover .project-title {
   transform: scale(1.1);
 }
 
@@ -1706,29 +1721,29 @@ main {
 }
 
 .corner-decoration.top-left {
-  top: 20px;
-  left: 100px;
+  top: 12px;
+  left: 12px;
   border-right: none;
   border-bottom: none;
 }
 
 .corner-decoration.top-right {
-  top: 20px;
-  right: 100px;
+  top: 12px;
+  right: 12px;
   border-left: none;
   border-bottom: none;
 }
 
 .corner-decoration.bottom-left {
-  bottom: 20px;
-  left: 20px;
+  bottom: 12px;
+  left: 12px;
   border-right: none;
   border-top: none;
 }
 
 .corner-decoration.bottom-right {
-  bottom: 20px;
-  right: 20px;
+  bottom: 12px;
+  right: 12px;
   border-left: none;
   border-top: none;
 }

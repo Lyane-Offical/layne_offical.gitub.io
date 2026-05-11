@@ -1,520 +1,877 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layne | System Online | Cyber Security</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="grid-bg"></div>
-  <div class="code-rain" id="code-rain"></div>
-  <div class="scanlines"></div>
-  
-  <div class="system-status">
-    <span class="status-label">TIME:</span>
-    <span class="status-value" id="time-display">00:00:00</span>
-    <span class="status-dot"></span>
-    <span class="status-text">SYSTEM_ONLINE</span>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layne | System Online | Cyber Security</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="grid-bg"></div>
+    <div class="code-rain" id="code-rain"></div>
+    <div class="scanlines"></div>
 
-  <div class="system-info-bar" id="system-info-bar">
-    <span class="info-icon">INFO</span>
-    <span class="info-message" id="info-message">系统就绪，等待指令...</span>
-  </div>
-
-  <div class="cursor-coords">
-    <span>CURSOR_X: <span id="cursor-x">0000</span></span>
-    <span>CURSOR_Y: <span id="cursor-y">0000</span></span>
-  </div>
-
-  <nav class="cyber-nav">
-    <ul class="nav-items">
-      <li class="nav-item active" data-target="about">
-        <span class="nav-letter">A</span>
-        <span class="nav-label">关于</span>
-      </li>
-      <li class="nav-item" data-target="skills">
-        <span class="nav-letter">S</span>
-        <span class="nav-label">技能</span>
-      </li>
-      <li class="nav-item" data-target="portfolio">
-        <span class="nav-letter">P</span>
-        <span class="nav-label">作品</span>
-      </li>
-      <li class="nav-item" data-target="contact">
-        <span class="nav-letter">C</span>
-        <span class="nav-label">联系</span>
-      </li>
-    </ul>
-  </nav>
-
-  <main>
-    <section id="about" class="section active">
-      <div class="container">
-        <div class="terminal-window">
-          <div class="top-glow"></div>
-          <div class="bottom-glow"></div>
-          <div class="terminal-header">
-            <div class="terminal-dots">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <span class="terminal-title">layne@system:~$ ./介绍.sh</span>
-          </div>
-          <div class="terminal-content" id="terminal-output">
-            <p class="output-line"><span class="prompt">></span> 正在初始化个人资料...</p>
-            <p class="output-line"><span class="prompt">></span> 正在加载数据...</p>
-            <p class="output-line success"><span class="prompt">></span> 资料加载成功</p>
-            <br>
-            <div class="profile-card">
-              <div class="avatar-container">
-                <div class="avatar">
-                  <span class="avatar-letter">Layne</span>
-                </div>
-                <div class="avatar-ring"></div>
-              </div>
-              <div class="profile-info">
-                <h1 class="name">唐雷 | Layne</h1>
-                <div class="title">全栈开发者 | 飞书生态专家</div>
-                <div class="tags">
-                  <span class="tag">HTML/CSS/TS</span>
-                  <span class="tag">Python</span>
-                  <span class="tag">Vue/React</span>
-                  <span class="tag">Feishu</span>
-                </div>
-              </div>
-            </div>
-            <br>
-            <p class="output-line"><span class="prompt">></span> 输入 'help' 查看可用命令</p>
-          </div>
-        </div>
-
-        <div class="info-panel">
-          <div class="panel-top-glow"></div>
-          <div class="panel-header">
-            <span class="panel-title">系统信息</span>
-            <span class="panel-status online"></span>
-          </div>
-          <div class="panel-content">
-            <div class="info-row">
-              <span class="info-label">所在地:</span>
-              <span class="info-value">中国 成都</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">出生日期:</span>
-              <span class="info-value">1997年2月20日</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">状态:</span>
-              <span class="info-value active">在线</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">连接数:</span>
-              <span class="info-value">3 安全连接</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-number">02</span>
-          <h2 class="section-title">Skills</h2>
-          <div class="section-divider"></div>
-        </div>
-        
-        <div class="skills-grid">
-          <div class="skill-card">
-            <div class="card-header">
-              <span class="card-icon">//</span>
-              <span class="card-title">编程语言</span>
-            </div>
-            <div class="skill-bars">
-              <div class="skill-item">
-                <div class="skill-label">HTML5/CSS3</div>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 95%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label">TypeScript</div>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 90%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label">Python</div>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 85%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <div class="card-header">
-              <span class="card-icon">/*</span>
-              <span class="card-title">前端技术</span>
-            </div>
-            <div class="skill-bars">
-              <div class="skill-item">
-                <div class="skill-label">Vue.js</div>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 92%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label">React</div>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 88%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label">Electron</div>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 75%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <div class="card-header">
-              <span class="card-icon">*/</span>
-              <span class="card-title">飞书生态</span>
-            </div>
-            <div class="skill-bars">
-              <div class="skill-item">
-                <div class="skill-label">多维表格</div>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 95%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label">集成平台</div>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 90%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-label">开放平台</div>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 85%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio" class="section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-number">03</span>
-          <h2 class="section-title">Projects</h2>
-          <div class="section-divider"></div>
-        </div>
-        
-        <div class="projects-list">
-          <div class="project-card" data-project-id="project-1">
-            <div class="project-main">
-              <div class="project-image-wrapper">
-                <img src="https://free.picui.cn/free/2026/05/10/6a005eb7c6dd1.png" alt="销售拜访记录系统" class="project-image">
-                <div class="project-overlay">
-                  <span class="project-status">运行中</span>
-                </div>
-              </div>
-              <div class="project-info">
-                <div class="project-header">
-                  <span class="project-id">项目_001</span>
-                  <span class="project-type">企业级</span>
-                </div>
-                <h3 class="project-name">销售拜访记录系统</h3>
-                <p class="project-desc">基于飞书多维表格构建的企业级销售管理解决方案，支持实时数据看板和客户关系管理集成。</p>
-                <div class="project-tags">
-                  <span class="project-tag">飞书多维表格</span>
-                  <span class="project-tag">数据看板</span>
-                  <span class="project-tag">客户管理</span>
-                </div>
-                <div class="project-actions">
-                  <a href="https://dev.feishu.cn/app/Z74zbE0onaLVSks1DRJceFq1nvg?from=from_copylink" target="_blank" class="project-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                    </svg>
-                    <span>访问应用</span>
-                  </a>
-                  <button class="project-detail-btn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                      <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                      <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                    </svg>
-                    <span>查看详情</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="project-expand">
-              <div class="expand-content">
-                <div class="expand-header">
-                  <h4>核心功能</h4>
-                  <button class="expand-close">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                      <line x1="18" y1="6" x2="6" y2="18"/>
-                      <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                  </button>
-                </div>
-                <ul class="expand-features">
-                  <li><span class="feature-icon">▸</span>数据可视化仪表盘：实时展示销售业绩、拜访频次、客户转化率等核心指标</li>
-                  <li><span class="feature-icon">▸</span>智能销售拜访记录：自动记录拜访时间、地点、参与人员</li>
-                  <li><span class="feature-icon">▸</span>高效会议文档管理：集中存储会议资料，支持多人实时协作编辑</li>
-                  <li><span class="feature-icon">▸</span>可视化任务跟踪：灵活创建销售任务，支持优先级排序和状态流转</li>
-                  <li><span class="feature-icon">▸</span>完整客户画像档案：深度记录客户拜访过程、沟通要点和跟进计划</li>
-                  <li><span class="feature-icon">▸</span>全生命周期管理：从线索获取、商家对接、项目跟进到成交转化</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card" data-project-id="project-2">
-            <div class="project-main">
-              <div class="project-image-wrapper">
-                <img src="https://free.picui.cn/free/2026/05/10/6a005eb8504b9.png" alt="多仓库库存管理系统" class="project-image">
-                <div class="project-overlay">
-                  <span class="project-status">运行中</span>
-                </div>
-              </div>
-              <div class="project-info">
-                <div class="project-header">
-                  <span class="project-id">项目_002</span>
-                  <span class="project-type">系统级</span>
-                </div>
-                <h3 class="project-name">多仓库库存管理系统</h3>
-                <p class="project-desc">AI驱动的多仓库库存系统，支持智能文档识别和库存监控。</p>
-                <div class="project-tags">
-                  <span class="project-tag">人工智能</span>
-                  <span class="project-tag">库存管理</span>
-                  <span class="project-tag">飞书</span>
-                </div>
-                <div class="project-actions">
-                  <a href="https://dev.feishu.cn/app/Elf1boKcLacl3SsX7OJc2MHSnrf?from=from_copylink" target="_blank" class="project-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                    </svg>
-                    <span>访问应用</span>
-                  </a>
-                  <button class="project-detail-btn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                      <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                      <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                    </svg>
-                    <span>查看详情</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="project-expand">
-              <div class="expand-content">
-                <div class="expand-header">
-                  <h4>核心功能</h4>
-                  <button class="expand-close">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                      <line x1="18" y1="6" x2="6" y2="18"/>
-                      <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                  </button>
-                </div>
-                <ul class="expand-features">
-                  <li><span class="feature-icon">▸</span>智能入库管理：支持传入入库单图片，AI进行读取并批量导入</li>
-                  <li><span class="feature-icon">▸</span>灵活出库管理：支持多仓库出库、库存预留、批次管理</li>
-                  <li><span class="feature-icon">▸</span>商品信息管理：完整记录商品SKU、规格、批次、有效期等信息</li>
-                  <li><span class="feature-icon">▸</span>多仓库协同管理：统一管理多个仓库的库存状态</li>
-                  <li><span class="feature-icon">▸</span>数据可视化仪表盘：实时展示库存总量、出入库统计、库存周转率</li>
-                  <li><span class="feature-icon">▸</span>库存预警系统：智能提醒库存不足或过期商品</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card" data-project-id="project-3">
-            <div class="project-main">
-              <div class="project-image-wrapper">
-                <img src="https://free.picui.cn/free/2026/05/10/6a0064c532684.png" alt="Echo 情感日记" class="project-image">
-                <div class="project-overlay">
-                  <span class="project-status">开发中</span>
-                </div>
-              </div>
-              <div class="project-info">
-                <div class="project-header">
-                  <span class="project-id">项目_003</span>
-                  <span class="project-type">桌面端</span>
-                </div>
-                <h3 class="project-name">Echo 情感日记</h3>
-                <p class="project-desc">基于AI的情感记录桌面应用，提供情感支持和云端同步功能。</p>
-                <div class="project-tags">
-                  <span class="project-tag">Electron</span>
-                  <span class="project-tag">人工智能</span>
-                  <span class="project-tag">React</span>
-                </div>
-                <div class="project-actions">
-                  <span class="project-link disabled">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                      <circle cx="12" cy="12" r="10"/>
-                      <line x1="12" y1="8" x2="12" y2="12"/>
-                      <line x1="12" y1="16" x2="12.01" y2="16"/>
-                    </svg>
-                    <span>开发中</span>
-                  </span>
-                  <button class="project-detail-btn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                      <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                      <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                    </svg>
-                    <span>查看详情</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="project-expand">
-              <div class="expand-content">
-                <div class="expand-header">
-                  <h4>核心功能</h4>
-                  <button class="expand-close">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                      <line x1="18" y1="6" x2="6" y2="18"/>
-                      <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                  </button>
-                </div>
-                <div class="gallery-wrapper">
-                  <div class="gallery-scroll">
-                    <img src="https://free.picui.cn/free/2026/05/10/6a0064c532684.png" alt="Echo 启动" class="gallery-image">
-                    <img src="https://free.picui.cn/free/2026/05/10/6a0064c5eab52.png" alt="Echo 主页" class="gallery-image">
-                    <img src="https://free.picui.cn/free/2026/05/10/6a0064c5a5c87.png" alt="Echo 时间线" class="gallery-image">
-                    <img src="https://free.picui.cn/free/2026/05/10/6a0064c5b33e9.png" alt="Echo 记录" class="gallery-image">
-                    <img src="https://free.picui.cn/free/2026/05/10/6a0064c5e986b.png" alt="Echo AI聊天" class="gallery-image">
-                  </div>
-                </div>
-                <ul class="expand-features">
-                  <li><span class="feature-icon">▸</span>AI情感智能助手：基于通义千问大模型的AI聊天助手</li>
-                  <li><span class="feature-icon">▸</span>12种情感标签记录：涵盖快乐、委屈、心动、孤独、温暖等情感</li>
-                  <li><span class="feature-icon">▸</span>回响功能：为每段情感记录添加后续思考和感悟</li>
-                  <li><span class="feature-icon">▸</span>时光机模式：按时间线浏览所有记录，重温美好瞬间</li>
-                  <li><span class="feature-icon">▸</span>GitHub风格贡献图：直观展示记录习惯</li>
-                  <li><span class="feature-icon">▸</span>OneDrive云端同步：数据库和图片自动同步到云端</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-number">04</span>
-          <h2 class="section-title">Links</h2>
-          <div class="section-divider"></div>
-        </div>
-        
-        <div class="contact-grid">
-          <div class="contact-card email-card">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            <div class="contact-info">
-              <span class="contact-label">邮箱</span>
-              <div class="email-wrapper">
-                <span class="contact-value email-value" id="email-value">2697863232@qq.com</span>
-                <button class="copy-btn" id="copy-email-btn" data-clipboard-text="2697863232@qq.com">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="contact-status online"></div>
-            <div class="copy-tooltip" id="copy-tooltip">复制成功!</div>
-          </div>
-
-          <div class="contact-card">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="2" y="6" width="20" height="12" rx="2" ry="2"/>
-              <polyline points="8 10 12 14 16 10"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>
-            <div class="contact-info">
-              <span class="contact-label">哔哩哔哩</span>
-              <a href="https://space.bilibili.com/396911528" target="_blank" class="contact-value">Layne_Offical</a>
-            </div>
-            <div class="contact-status online"></div>
-          </div>
-
-          <div class="contact-card">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-              <rect x="2" y="10" width="20" height="12" rx="2" ry="2"/>
-            </svg>
-            <div class="contact-info">
-              <span class="contact-label">代码仓库</span>
-              <a href="https://gitee.com/otter-life" target="_blank" class="contact-value">@Layne</a>
-            </div>
-            <div class="contact-status online"></div>
-          </div>
-        </div>
-
-        <div class="message-terminal">
-          <div class="terminal-header">
-            <div class="terminal-dots">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <span class="terminal-title">layne@system:~$ ./发送消息.sh</span>
-          </div>
-          <div class="message-input-wrapper">
-            <span class="input-prompt">></span>
-            <input type="text" id="message-input" placeholder="输入消息..." class="message-input">
-            <button id="send-btn" class="send-btn">发送</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div class="cursor-crosshair">
-    <div class="crosshair-h"></div>
-    <div class="crosshair-v"></div>
-    <div class="crosshair-corner-container">
-      <div class="crosshair-corner top-left"></div>
-      <div class="crosshair-corner top-right"></div>
-      <div class="crosshair-corner bottom-left"></div>
-      <div class="crosshair-corner bottom-right"></div>
+    <div class="system-status">
+      <span class="status-label">TIME:</span>
+      <span class="status-value" id="time-display">00:00:00</span>
+      <span class="status-dot"></span>
+      <span class="status-text">SYSTEM_ONLINE</span>
     </div>
 
-  </div>
+    <div class="system-info-bar" id="system-info-bar">
+      <span class="info-icon">INFO</span>
+      <span class="info-message" id="info-message">系统就绪，等待指令...</span>
+    </div>
 
-  <div class="corner-decoration top-left"></div>
-  <div class="corner-decoration top-right"></div>
-  <div class="corner-decoration bottom-left"></div>
-  <div class="corner-decoration bottom-right"></div>
+    <div class="cursor-coords">
+      <span>CURSOR_X: <span id="cursor-x">0000</span></span>
+      <span>CURSOR_Y: <span id="cursor-y">0000</span></span>
+    </div>
 
-  <div class="tactical-mode">
-    <span>TACTICAL MODE</span>
-    <span class="mode-status">SECURE CONNECTION</span>
-  </div>
+    <nav class="cyber-nav">
+      <ul class="nav-items">
+        <li class="nav-item active" data-target="about">
+          <span class="nav-letter">A</span>
+          <span class="nav-label">关于</span>
+        </li>
+        <li class="nav-item" data-target="skills">
+          <span class="nav-letter">S</span>
+          <span class="nav-label">技能</span>
+        </li>
+        <li class="nav-item" data-target="portfolio">
+          <span class="nav-letter">P</span>
+          <span class="nav-label">作品</span>
+        </li>
+        <li class="nav-item" data-target="contact">
+          <span class="nav-letter">C</span>
+          <span class="nav-label">联系</span>
+        </li>
+      </ul>
+    </nav>
 
-  <script src="script.js"></script>
-</body>
+    <main>
+      <section id="about" class="section active">
+        <div class="container">
+          <div class="terminal-window">
+            <div class="top-glow"></div>
+            <div class="bottom-glow"></div>
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="terminal-title">layne@system:~$ ./介绍.sh</span>
+            </div>
+            <div class="terminal-content" id="terminal-output">
+              <p class="output-line">
+                <span class="prompt">></span> 正在初始化个人资料...
+              </p>
+              <p class="output-line">
+                <span class="prompt">></span> 正在加载数据...
+              </p>
+              <p class="output-line success">
+                <span class="prompt">></span> 资料加载成功
+              </p>
+              <br />
+              <div class="profile-card">
+                <div class="avatar-container">
+                  <div class="avatar">
+                    <span class="avatar-letter">Layne</span>
+                  </div>
+                  <div class="avatar-ring"></div>
+                </div>
+                <div class="profile-info">
+                  <h1 class="name">唐雷 （Layne）</h1>
+                  <div class="title">全栈开发者 | 飞书生态专家</div>
+                  <div class="tags">
+                    <span class="tag">HTML/CSS/TS</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Vue/React</span>
+                    <span class="tag">Feishu</span>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <p class="output-line">
+                <span class="prompt">></span> 输入 'help' 查看可用命令
+              </p>
+            </div>
+          </div>
+
+          <div class="info-panel">
+            <div class="panel-top-glow"></div>
+            <div class="panel-header">
+              <span class="panel-title">系统信息</span>
+              <span class="panel-status online"></span>
+            </div>
+            <div class="panel-content">
+              <div class="info-row">
+                <span class="info-label">所在地:</span>
+                <span class="info-value">中国 成都</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">出生日期:</span>
+                <span class="info-value">1997年2月20日</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">状态:</span>
+                <span class="info-value active">在线</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">连接数:</span>
+                <span class="info-value">4 安全连接</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Skills</h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="card-header">
+                <span class="card-icon">//</span>
+                <span class="card-title">编程语言</span>
+              </div>
+              <div class="skill-bars">
+                <div class="skill-item">
+                  <div class="skill-label">HTML5/CSS3</div>
+                  <div class="skill-bar">
+                    <div class="skill-fill" style="width: 95%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-label">TypeScript</div>
+                  <div class="skill-bar">
+                    <div class="skill-fill" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-label">Python</div>
+                  <div class="skill-bar">
+                    <div class="skill-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="card-header">
+                <span class="card-icon">/*</span>
+                <span class="card-title">前端技术</span>
+              </div>
+              <div class="skill-bars">
+                <div class="skill-item">
+                  <div class="skill-label">Vue.js</div>
+                  <div class="skill-bar">
+                    <div class="skill-fill" style="width: 92%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-label">React</div>
+                  <div class="skill-bar">
+                    <div class="skill-fill" style="width: 88%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-label">Electron</div>
+                  <div class="skill-bar">
+                    <div class="skill-fill" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="card-header">
+                <span class="card-icon">*/</span>
+                <span class="card-title">飞书生态</span>
+              </div>
+              <div class="skill-bars">
+                <div class="skill-item">
+                  <div class="skill-label">多维表格</div>
+                  <div class="skill-bar">
+                    <div class="skill-fill" style="width: 95%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-label">集成平台</div>
+                  <div class="skill-bar">
+                    <div class="skill-fill" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-label">开放平台</div>
+                  <div class="skill-bar">
+                    <div class="skill-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Projects</h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <div class="projects-list">
+            <div class="project-card" data-project-id="project-1">
+              <div class="project-main">
+                <div class="project-image-wrapper">
+                  <img
+                    src="https://free.picui.cn/free/2026/05/10/6a005eb7c6dd1.png"
+                    alt="销售拜访记录系统"
+                    class="project-image"
+                  />
+                  <div class="project-overlay">
+                    <span class="project-status">运行中</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-header">
+                    <span class="project-id">项目_001</span>
+                    <span class="project-type">企业级</span>
+                  </div>
+                  <h3 class="project-name">销售拜访记录系统</h3>
+                  <p class="project-desc">
+                    基于飞书多维表格构建的企业级销售管理解决方案，支持实时数据看板和客户关系管理集成。
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">飞书多维表格</span>
+                    <span class="project-tag">数据看板</span>
+                    <span class="project-tag">客户管理</span>
+                  </div>
+                  <div class="project-actions">
+                    <a
+                      href="https://dev.feishu.cn/app/Z74zbE0onaLVSks1DRJceFq1nvg?from=from_copylink"
+                      target="_blank"
+                      class="project-link"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <path
+                          d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                        />
+                        <path
+                          d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                        />
+                      </svg>
+                      <span>访问应用</span>
+                    </a>
+                    <button class="project-detail-btn">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                      <span>查看详情</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-expand">
+                <div class="expand-content">
+                  <div class="expand-header">
+                    <h4>核心功能</h4>
+                    <button class="expand-close">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+                  <ul class="expand-features">
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >数据可视化仪表盘：实时展示销售业绩、拜访频次、客户转化率等核心指标
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >智能销售拜访记录：自动记录拜访时间、地点、参与人员
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >高效会议文档管理：集中存储会议资料，支持多人实时协作编辑
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >可视化任务跟踪：灵活创建销售任务，支持优先级排序和状态流转
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >完整客户画像档案：深度记录客户拜访过程、沟通要点和跟进计划
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >全生命周期管理：从线索获取、商家对接、项目跟进到成交转化
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-project-id="project-2">
+              <div class="project-main">
+                <div class="project-image-wrapper">
+                  <img
+                    src="https://free.picui.cn/free/2026/05/10/6a005eb8504b9.png"
+                    alt="多仓库库存管理系统"
+                    class="project-image"
+                  />
+                  <div class="project-overlay">
+                    <span class="project-status">运行中</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-header">
+                    <span class="project-id">项目_002</span>
+                    <span class="project-type">系统级</span>
+                  </div>
+                  <h3 class="project-name">多仓库库存管理系统</h3>
+                  <p class="project-desc">
+                    AI驱动的多仓库库存系统，支持智能文档识别和库存监控。
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">人工智能</span>
+                    <span class="project-tag">库存管理</span>
+                    <span class="project-tag">飞书</span>
+                  </div>
+                  <div class="project-actions">
+                    <a
+                      href="https://dev.feishu.cn/app/Elf1boKcLacl3SsX7OJc2MHSnrf?from=from_copylink"
+                      target="_blank"
+                      class="project-link"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <path
+                          d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                        />
+                        <path
+                          d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                        />
+                      </svg>
+                      <span>访问应用</span>
+                    </a>
+                    <button class="project-detail-btn">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                      <span>查看详情</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-expand">
+                <div class="expand-content">
+                  <div class="expand-header">
+                    <h4>核心功能</h4>
+                    <button class="expand-close">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+                  <ul class="expand-features">
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >智能入库管理：支持传入入库单图片，AI进行读取并批量导入
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >灵活出库管理：支持多仓库出库、库存预留、批次管理
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >商品信息管理：完整记录商品SKU、规格、批次、有效期等信息
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >多仓库协同管理：统一管理多个仓库的库存状态
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >数据可视化仪表盘：实时展示库存总量、出入库统计、库存周转率
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >库存预警系统：智能提醒库存不足或过期商品
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-project-id="project-3">
+              <div class="project-main">
+                <div class="project-image-wrapper">
+                  <div class="project-title">飞书记账</div>
+                  <div class="project-overlay">
+                    <span class="project-status">运行中</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-header">
+                    <span class="project-id">项目_003</span>
+                    <span class="project-type">教程</span>
+                  </div>
+                  <h3 class="project-name">飞书+ios 快捷指令记账系统</h3>
+                  <p class="project-desc">
+                    基于飞书+ios的快捷指令记账系统，支持用户通过苹果手机快捷指令进行记账操作。
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">快捷指令记账</span>
+                    <span class="project-tag">ios</span>
+                    <span class="project-tag">飞书</span>
+                  </div>
+                  <div class="project-actions">
+                    <a
+                      href="https://www.bilibili.com/video/BV1DW4y1c7bi/"
+                      target="_blank"
+                      class="project-link"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <path
+                          d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                        />
+                        <path
+                          d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                        />
+                      </svg>
+                      <span>访问教程</span>
+                    </a>
+                    <button class="project-detail-btn">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                      <span>查看详情</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-expand">
+                <div class="expand-content">
+                  <div class="expand-header">
+                    <h4>核心功能</h4>
+                    <button class="expand-close">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+                  <ul class="expand-features">
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >快捷指令记账：支持用户通过苹果手机快捷指令进行记账操作
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >数据同步：通过飞书多维表格保存记账记录，支持多设备查看
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >数据管理：支持用户查看、删除、导出记账记录等操作
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >数据分析：支持用户查看记账记录的统计分析，如总金额、总数量、平均金额等
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-project-id="project-4">
+              <div class="project-main">
+                <div class="project-image-wrapper">
+                  <img
+                    src="https://free.picui.cn/free/2026/05/10/6a0064c532684.png"
+                    alt="Echo 情感日记"
+                    class="project-image"
+                  />
+                  <div class="project-overlay">
+                    <span class="project-status">开发中</span>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div class="project-header">
+                    <span class="project-id">项目_004</span>
+                    <span class="project-type">桌面端</span>
+                  </div>
+                  <h3 class="project-name">Echo 情感日记</h3>
+                  <p class="project-desc">
+                    基于AI的情感记录桌面应用，提供情感支持和云端同步功能。
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">Electron</span>
+                    <span class="project-tag">人工智能</span>
+                    <span class="project-tag">React</span>
+                  </div>
+                  <div class="project-actions">
+                    <span class="project-link disabled">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                      </svg>
+                      <span>开发中</span>
+                    </span>
+                    <button class="project-detail-btn">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                      <span>查看详情</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-expand">
+                <div class="expand-content">
+                  <div class="expand-header">
+                    <h4>核心功能</h4>
+                    <button class="expand-close">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        width="16"
+                        height="16"
+                      >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="gallery-wrapper">
+                    <div class="gallery-scroll">
+                      <img
+                        src="https://free.picui.cn/free/2026/05/10/6a0064c532684.png"
+                        alt="Echo 启动"
+                        class="gallery-image"
+                      />
+                      <img
+                        src="https://free.picui.cn/free/2026/05/10/6a0064c5eab52.png"
+                        alt="Echo 主页"
+                        class="gallery-image"
+                      />
+                      <img
+                        src="https://free.picui.cn/free/2026/05/10/6a0064c5a5c87.png"
+                        alt="Echo 时间线"
+                        class="gallery-image"
+                      />
+                      <img
+                        src="https://free.picui.cn/free/2026/05/10/6a0064c5b33e9.png"
+                        alt="Echo 记录"
+                        class="gallery-image"
+                      />
+                      <img
+                        src="https://free.picui.cn/free/2026/05/10/6a0064c5e986b.png"
+                        alt="Echo AI聊天"
+                        class="gallery-image"
+                      />
+                    </div>
+                  </div>
+                  <ul class="expand-features">
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >AI情感智能助手：基于通义千问大模型的AI聊天助手
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >12种情感标签记录：涵盖快乐、委屈、心动、孤独、温暖等情感
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >回响功能：为每段情感记录添加后续思考和感悟
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >时光机模式：按时间线浏览所有记录，重温美好瞬间
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >GitHub风格贡献图：直观展示记录习惯
+                    </li>
+                    <li>
+                      <span class="feature-icon">▸</span
+                      >OneDrive云端同步：数据库和图片自动同步到云端
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-number">04</span>
+            <h2 class="section-title">Links</h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card email-card">
+              <svg
+                t="1778474792516"
+                class="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="3593"
+                width="48"
+                height="48"
+                fill="currentColor"
+              >
+                <path
+                  d="M926.47619 355.644952V780.190476a73.142857 73.142857 0 0 1-73.142857 73.142857H170.666667a73.142857 73.142857 0 0 1-73.142857-73.142857V355.644952l73.142857 62.000762V780.190476h682.666666V417.645714l73.142857-62.000762zM853.333333 170.666667a74.044952 74.044952 0 0 1 26.087619 4.778666 72.704 72.704 0 0 1 30.622477 22.186667 73.508571 73.508571 0 0 1 10.678857 17.67619c3.169524 7.509333 5.12 15.652571 5.607619 24.210286L926.47619 243.809524v24.380952L559.469714 581.241905a73.142857 73.142857 0 0 1-91.306666 2.901333l-3.632762-2.925714L97.52381 268.190476v-24.380952a72.899048 72.899048 0 0 1 40.155428-65.292191A72.97219 72.97219 0 0 1 170.666667 170.666667h682.666666z m-10.971428 73.142857H181.638095L512 525.58019 842.361905 243.809524z"
+                  p-id="3594"
+                ></path>
+              </svg>
+              <div class="contact-info">
+                <span class="contact-label">Email</span>
+                <div class="email-wrapper">
+                  <span class="contact-value email-value" id="email-value"
+                    >2697863232@qq.com</span
+                  >
+                  <button
+                    class="copy-btn"
+                    id="copy-email-btn"
+                    data-clipboard-text="2697863232@qq.com"
+                  >
+                    <svg
+                      t="1778475126180"
+                      class="icon"
+                      viewBox="0 0 1024 1024"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      p-id="5587"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M829.568 53.12H960V1024H194.432v-121.344H64V284.48L361.92 0h467.648v53.12z m0 80.896v768.64H279.488v40.448h595.456V134.016h-45.44zM149.056 317.952v503.808h595.456V80.896H397.248L149.12 317.952z"
+                        p-id="5588"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="contact-status online"></div>
+              <div class="copy-tooltip" id="copy-tooltip">复制成功!</div>
+            </div>
+
+            <div class="contact-card">
+              <svg
+                t="1778474553009"
+                class="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="1697"
+                width="48"
+                height="48"
+                fill="currentColor"
+              >
+                <path
+                  d="M430.336 440.96l-160.96 29.568 13.76 57.984 159.36-29.568-12.16-57.984zM517.12 594.688c-39.296 80.96-74.624 19.84-74.624 19.84l-26.304 16.32s51.84 68.16 101.376 16.384c58.368 51.776 103.04-16.768 103.04-16.768l-24-14.72c0-0.448-41.728 57.6-79.488-21.12z m79.488-95.744l159.808 29.568 13.376-57.984-160.64-29.568-12.544 57.984z m317.248-113.92c-2.56-107.968-100.672-128.704-100.672-128.704s-76.608-0.384-176.064-1.28l72.32-66.944s11.52-13.824-8-29.248c-19.456-15.424-20.736-8.512-27.52-4.48-5.888 4.096-92.672 85.76-107.904 100.352-39.36 0-80.384-0.448-120.192-0.448h14.016s-103.68-98.304-110.464-102.72c-6.784-4.48-7.68-11.008-27.52 4.48-19.456 15.36-8.064 29.184-8.064 29.184l74.112 69.12c-80.448 0-149.824 0.384-182.016 1.6-104.064 28.8-96 129.152-96 129.152s1.28 215.232 0 324.096c11.392 108.8 98.56 126.272 98.56 126.272s34.688 0.832 60.544 0.832c2.56 6.912 4.608 40.96 44.416 40.96 39.36 0 44.416-40.96 44.416-40.96s289.92-1.28 313.984-1.28c1.28 11.84 7.232 43.072 46.976 42.688 39.36-0.832 42.304-45.056 42.304-45.056s13.568-1.28 53.76 0c93.952-16.64 99.456-122.24 99.456-122.24s-1.728-217.28-0.448-325.312z m-80.832 344.448a31.04 31.04 0 0 1-31.296 30.848H230.464a31.04 31.04 0 0 1-31.36-30.848v-363.52c0-17.024 14.016-30.848 31.36-30.848h571.264c17.344 0 31.36 13.824 31.36 30.848v363.52z"
+                  p-id="1698"
+                ></path>
+              </svg>
+              <div class="contact-info">
+                <span class="contact-label">Bilibili</span>
+                <a
+                  href="https://space.bilibili.com/396911528"
+                  target="_blank"
+                  class="contact-value"
+                  >Layne_Offical</a
+                >
+              </div>
+              <div class="contact-status online"></div>
+            </div>
+
+            <div class="contact-card">
+              <svg
+                t="1778474847337"
+                class="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="4603"
+                width="48"
+                height="48"
+                fill="currentColor"
+              >
+                <path
+                  d="M153.770667 517.558857l200.387047-197.241905L302.86019 268.190476 48.761905 518.290286l254.439619 243.614476 50.590476-52.833524-200.021333-191.512381zM658.285714 320.316952L709.583238 268.190476l254.098286 250.09981L709.241905 761.904762l-50.590476-52.833524 200.021333-191.512381L658.285714 320.316952z m-112.981333-86.186666L393.99619 785.554286l70.534096 19.358476 151.30819-551.399619-70.534095-19.358476z"
+                  p-id="4604"
+                ></path>
+              </svg>
+              <div class="contact-info">
+                <span class="contact-label">Gitee</span>
+                <a
+                  href="https://gitee.com/otter-life"
+                  target="_blank"
+                  class="contact-value"
+                  >@Layne</a
+                >
+              </div>
+              <div class="contact-status online"></div>
+            </div>
+          </div>
+
+          <div class="message-terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="terminal-title">layne@system:~$ ./发送消息.sh</span>
+            </div>
+            <div class="message-input-wrapper">
+              <span class="input-prompt">></span>
+              <input
+                type="text"
+                id="message-input"
+                placeholder="输入消息..."
+                class="message-input"
+              />
+              <button id="send-btn" class="send-btn">发送</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="cursor-crosshair">
+      <div class="crosshair-h"></div>
+      <div class="crosshair-v"></div>
+      <div class="crosshair-corner-container">
+        <div class="crosshair-corner top-left"></div>
+        <div class="crosshair-corner top-right"></div>
+        <div class="crosshair-corner bottom-left"></div>
+        <div class="crosshair-corner bottom-right"></div>
+      </div>
+    </div>
+
+    <div class="corner-decoration top-left"></div>
+    <div class="corner-decoration top-right"></div>
+    <div class="corner-decoration bottom-left"></div>
+    <div class="corner-decoration bottom-right"></div>
+
+    <div class="tactical-mode">
+      <span>TACTICAL MODE</span>
+      <span class="mode-status">SECURE CONNECTION</span>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
